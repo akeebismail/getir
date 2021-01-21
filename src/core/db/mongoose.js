@@ -16,14 +16,7 @@ mongoose.connection.on('error', (err) => {
 exports.connect = () => {
     let mURL = config.mongoURL
     return new Promise((resolve, reject) => {
-        mongoose.connect(mURL, {
-            poolSize: 10,
-            keepAlive: 1,
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useFindAndModify: false
-            //  useUnifiedTopology: true
-        }).then(() => {
+        mongoose.connect(mURL).then(() => {
             resolve(mongoose.connection)
         }).catch(err => reject(err))
     })

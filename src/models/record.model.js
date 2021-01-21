@@ -11,4 +11,4 @@ const scheam = new Schema({
     counts: {type: Array}
 })
 
-module.exports = mongoose.model('records', scheam)
+module.exports = mongoose.model('Record', new Schema({}, {strict: false}))
