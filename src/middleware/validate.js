@@ -1,4 +1,3 @@
-const Joi = require('joi')
 const responseHandle = require('../utils/responseHandle')
 const validate = (schema, body = 'body') => {
     return (req, res, next) => {
