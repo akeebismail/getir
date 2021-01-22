@@ -1,5 +1,5 @@
 #Getir Backend challenge - Record Retriever 
-
+> https://akeeb-getir.herokuapp.com
 ### Installation and use
 start by cloning the project
 
@@ -27,6 +27,6 @@ In the project directory run
 
 # docs
 
-Visit API Docs [`https://documenter.getpostman.com/view/2986365/TW6tK9Mm`]  for the api documentation
+Visit [API Docs](https://documenter.getpostman.com/view/2986365/TW6tK9Mm)  for the api documentation
 
 thanks
