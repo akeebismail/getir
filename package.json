@@ -4,7 +4,7 @@
   "description": "Getir express API to retrieve records from a db",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "export NODE_ENV=test && jest --verbose --coverage "
   },
   "repository": {
