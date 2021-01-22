@@ -2,16 +2,16 @@ const supertest = require('supertest')
 const {api} = require('../../src/core/express')
 const request = supertest(api)
 
-describe('POST /data', () => {
+describe('POST /records/data', () => {
     test('should respond with 422 for invalid payload', async () => {
-        const res = await request.post('/data').send({
+        const res = await request.post('/records/data').send({
             startDate: '2012-01'
         })
         expect(res.status).toBe(422)
         expect(res.body.code).toBe(422)
     })
     test('should respond with 200', async () => {
-        const res = await request.post('/data').send({
+        const res = await request.post('/records/data').send({
             "startDate": "2016-01-26",
             "endDate": "2018-02-02",
             "minCount": 2700,
@@ -22,7 +22,7 @@ describe('POST /data', () => {
         expect(res.body.msg).toEqual('Success')
     })
     test('should response with 200 and proper response document', async () => {
-        const res = await request.post('/data').send({
+        const res = await request.post('/records/data').send({
             "startDate": "2016-01-26",
             "endDate": "2018-02-02",
             "minCount": 2700,
@@ -34,7 +34,7 @@ describe('POST /data', () => {
         expect(res.body).toHaveProperty('records')
     })
     test('should response with totalCount', async () => {
-        const res = await request.post('/data').send({
+        const res = await request.post('/records/data').send({
             "startDate": "2016-01-26",
             "endDate": "2018-02-02",
             "minCount": 2700,

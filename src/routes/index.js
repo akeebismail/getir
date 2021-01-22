@@ -10,5 +10,5 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/data', validate(records), recordController.getRecords)
+router.post('/records/data', validate(records), recordController.getRecords)
 module.exports = router;
