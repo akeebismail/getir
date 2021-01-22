@@ -9,5 +9,6 @@ describe('API Index', () => {
     it('should respond with 404 status', async function () {
         const res = await request.get('/something')
         expect(res.status).toBe(404)
+        expect(res.body.code).toBe(404)
     });
 })

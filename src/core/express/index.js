@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const http = require('http')
 const routes = require('../../routes')
 const config = require('../../config')
+const responseHandler = require('../../utils/responseHandle')
 const rawBodySaver = function (req, _res, buf, encoding) {
     if (buf && buf.length)req.rawBody = buf.toString(encoding || 'utf8');
 }
@@ -14,8 +15,8 @@ app.use(bodyParser.urlencoded({limit: '50mb', verify: rawBodySaver, extended: fa
 
 app.use(routes)
 app.use((req, res) => {
-    return res.status(404).send({
-        code: 4,
+    return responseHandler.sendError(res, {
+        status: 404,
         message: 'Resource not found'
     })
 })

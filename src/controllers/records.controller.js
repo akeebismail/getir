@@ -1,4 +1,5 @@
 const Records = require('../models/record.model')
+const responseHandler = require('../utils/responseHandle')
 exports.getRecords = async (req, res) => {
     try {
         let {startDate, endDate, minCount, maxCount} = req.body
@@ -26,9 +27,15 @@ exports.getRecords = async (req, res) => {
                 }
             }
         ])
-        return res.status(200).send(records)
+        return responseHandler.sendSuccess(res, {
+            status: 200,
+            message: 'Success',
+            data: records
+        })
     }catch (e) {
-        console.log(e)
-        return res.status(500).send('internal server error')
+        return responseHandler.sendError(res, {
+            status: 500,
+            message: 'Internal server error.'
+        })
     }
 }
